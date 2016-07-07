@@ -1,0 +1,30 @@
+<header ng-include="'angular/includes/header.html'"></header>
+<section>
+    <div ng-include="'angular/includes/sidebar.html'"></div>
+    <md-content layout-padding>
+        <div class="main" ng-controller="ProductCtr">
+             <div>
+                 <md-content >
+                    <strong>
+                        Products Listing
+                        <md-button ui-sref="productsedit({ id:'' })" class="addnew" > add new </md-button>
+                     </strong>
+                    
+                 </md-content >
+                <md-card ng-repeat="product in products" layout="column">         
+                    <md-card-content >
+                        <p>
+                            {{product.name}}
+                            <a href="javascript:void(0);" ng-click="showConfirm($event, product)"><md-icon ng-style="{color:'#757575'}" aria-label="delete" class="material-icons step actions" ng-class="md-18" >delete</md-icon></a>
+                            <a ui-sref="productsedit({ id: product.id })"><md-icon ng-style="{color:'#757575'}" aria-label="edit" class="material-icons step actions" ng-class="md-18">create</md-icon></a>
+                        </p>
+                        
+                    </md-card-content>
+                </md-card>         
+
+
+            </div>
+        </div>
+    </md-content>
+    
+</section>
